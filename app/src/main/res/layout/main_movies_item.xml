@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View.OnClickListener" />
+
+        <variable
+            name="userActionListener"
+            type="com.nacoda.moviesmvvm.mvvm.MainItemUserActionListener" />
+
+        <variable
+            name="item"
+            type="com.nacoda.moviesmvvm.data.model.Movie" />
+
+        <variable
+            name="mViewModel"
+            type="com.nacoda.moviesmvvm.mvvm.MainViewModel" />
+
+        <variable
+            name="genres"
+            type="String" />
+
+        <variable
+            name="poster_path"
+            type="String" />
+        <variable
+            name="year"
+            type="String"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> userActionListener.onMovieClicked(item)}"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_8dp">
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/list_movies_main_poster_card"
+                android:layout_width="120dp"
+                android:layout_height="175dp"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                app:cardBackgroundColor="@color/colorImagePlaceholder"
+                app:cardCornerRadius="@dimen/dimen_8dp"
+                app:cardElevation="@dimen/dimen_4dp"
+                app:cardUseCompatPadding="true"
+                bind:imageUrl="@{poster_path}" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:layout_marginLeft="@dimen/dimen_8dp"
+                android:layout_marginRight="@dimen/dimen_16dp"
+                android:layout_marginStart="@dimen/dimen_8dp"
+                android:layout_marginTop="@dimen/dimen_32dp"
+                android:layout_toEndOf="@id/list_movies_main_poster_card"
+                android:layout_toRightOf="@id/list_movies_main_poster_card"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@{item.title}"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="@{genres}"
+                    android:textSize="@dimen/text_14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_light"
+                    android:text="@{year}"
+                    android:textSize="@dimen/text_12sp" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            android:background="@color/light_grey" />
+    </LinearLayout>
+</layout>

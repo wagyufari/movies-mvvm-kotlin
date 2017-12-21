@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Jasa Raharja</string>
+    <string name="data_is_empty">Data is empty</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="movie_name">Pirates of the Caribbean: Dead Men Tell No Tales</string>
+    <string name="movie_genre">Fantasy, Family, Romance</string>
+    <string name="movie_release_year">2017</string>
+</resources>
