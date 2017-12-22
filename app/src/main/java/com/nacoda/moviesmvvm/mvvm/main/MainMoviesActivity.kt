@@ -7,15 +7,15 @@ import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.Toast
 import com.nacoda.moviesmvvm.R
-import com.nacoda.moviesmvvm.base.BaseActivity
 import com.nacoda.moviesmvvm.data.model.Movie
 import com.nacoda.moviesmvvm.mvvm.main.movies.popular.PopularFragment
 import com.nacoda.moviesmvvm.mvvm.main.movies.top.TopFragment
 import com.nacoda.moviesmvvm.mvvm.main.search.SearchFragment
-import com.nacoda.moviesmvvm.util.replaceFragmentInActivity
 import android.view.KeyEvent
 import android.view.inputmethod.InputMethodManager
 import android.view.KeyEvent.KEYCODE_BACK
+import com.nacoda.moviesmvvm.base.BaseActivity
+import com.nacoda.moviesmvvm.util.replaceFragmentInActivity
 
 
 class MainMoviesActivity : BaseActivity(), MainItemUserActionListener {
@@ -23,7 +23,7 @@ class MainMoviesActivity : BaseActivity(), MainItemUserActionListener {
     private lateinit var mToolbar: Toolbar
 
     override fun onMovieClicked(movie: Movie) {
-        Toast.makeText(mActiviy, movie.original_title, Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, movie.original_title, Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

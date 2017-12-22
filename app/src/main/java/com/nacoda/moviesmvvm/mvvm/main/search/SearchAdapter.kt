@@ -1,6 +1,7 @@
 package com.nacoda.moviesmvvm.mvvm.main.search
 
 import android.content.Context
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.IntegerArrayAdapter
 import com.nacoda.moviesmvvm.R
 import com.nacoda.moviesmvvm.data.model.Movie
 import com.nacoda.moviesmvvm.databinding.SearchMoviesItemBinding
+import com.nacoda.moviesmvvm.mvvm.detail.DetailActivity
 import com.nacoda.moviesmvvm.mvvm.main.MainItemUserActionListener
 import com.nacoda.moviesmvvm.util.helper.Network.IMAGE_URL
 import com.nacoda.moviesmvvm.util.helper.getGenres
@@ -17,7 +19,7 @@ import com.nacoda.moviesmvvm.util.helper.getGenres
  * Created by irfanirawansukirman on 04/12/17.
  */
 
-class SearchAdapter(private var mMovies: List<Movie>?, private var mSearchViewModel: SearchViewModel, mContext: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class SearchAdapter(private var mMovies: List<Movie>?, private var mSearchViewModel: SearchViewModel,var mContext: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
         val mMainItemBinding: SearchMoviesItemBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context),
@@ -31,7 +33,9 @@ class SearchAdapter(private var mMovies: List<Movie>?, private var mSearchViewMo
 
         val mUserActionListener = object : MainItemUserActionListener {
             override fun onMovieClicked(movie: Movie) {
-
+                val intent = Intent(mContext, DetailActivity::class.java)
+                intent.putExtra(mContext.getString(R.string.detail_intent), movie)
+                mContext.startActivity(intent)
             }
         }
         (holder as MainItemHolder).bindItem(mMovieItem, mUserActionListener)

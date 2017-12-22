@@ -1,7 +1,7 @@
 package com.nacoda.moviesmvvm.data.source.remote
 
 import com.google.gson.Gson
-import id.gits.jasaraharja.base.BaseApiModel
+import com.nacoda.moviesmvvm.base.BaseApiModel
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 import retrofit2.HttpException

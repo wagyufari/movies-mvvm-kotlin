@@ -106,7 +106,7 @@ object MoviesRemoteDataSource : MoviesDataSource {
                 .subscribe({ results ->
                     run {
                         if (results.results!!.isNotEmpty()) {
-                            callback.onMoviesLoaded(results?.results)
+                            callback.onMoviesLoaded(results.results)
                         } else {
                             callback.onDataNotAvailable()
                         }

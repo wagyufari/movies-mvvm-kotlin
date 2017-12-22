@@ -1,7 +1,7 @@
 package com.nacoda.moviesmvvm.data.source.remote
 
+import com.nacoda.moviesmvvm.base.BaseApiModel
 import com.nacoda.moviesmvvm.data.model.Detail
-import id.gits.jasaraharja.base.BaseApiModel
 import com.nacoda.moviesmvvm.data.model.Movie
 import com.nacoda.moviesmvvm.util.helper.Network
 import io.reactivex.Observable

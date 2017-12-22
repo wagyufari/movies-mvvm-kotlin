@@ -11,6 +11,7 @@ import com.nacoda.moviesmvvm.data.model.Movie
 import com.nacoda.moviesmvvm.databinding.DetailHeaderFragmentBinding
 import com.nacoda.moviesmvvm.databinding.PopularFragmentBinding
 import com.nacoda.moviesmvvm.util.helper.Network
+import com.nacoda.moviesmvvm.util.helper.getGenres
 import com.nacoda.moviesmvvm.util.obtainViewModel
 import kotlinx.android.synthetic.main.popular_fragment.*
 
@@ -33,6 +34,15 @@ class DetailHeaderFragment @SuppressLint("ValidFragment") constructor
         super.onActivityCreated(savedInstanceState)
         mViewDataBinding.mMovie = mMovie
         mViewDataBinding.backdropPath = (Network.IMAGE_URL + mMovie.backdrop_path)
+        mViewDataBinding.posterPath = (Network.IMAGE_URL + mMovie.poster_path)
+        mViewDataBinding.genres = getGenres(mMovie.genre_ids)
+        try {
+            mViewDataBinding.year = mMovie.release_date?.substring(0, 4)
+        } catch (e: Exception) {
+            mViewDataBinding.year = "?"
+        }
+        mViewDataBinding.votes = mMovie.vote_count.toString()
+        mViewDataBinding.rating = ((mMovie.vote_average.toFloat() * 10).toInt().toString() + "%")
     }
 
     override fun onResume() {

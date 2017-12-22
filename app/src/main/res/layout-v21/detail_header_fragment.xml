@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/tools">
@@ -51,6 +50,13 @@
             android:background="@color/colorImagePlaceholder"
             bind:loadPoster="@{backdrop_path}" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/gradient" />
+
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,7 +82,10 @@
 
             <android.support.v7.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                app:cardCornerRadius="@dimen/dimen_4dp"
+                app:cardUseCompatPadding="true">
 
                 <ImageView
                     android:layout_width="100dp"
