@@ -5,4 +5,12 @@
     <string name="movie_name">Pirates of the Caribbean: Dead Men Tell No Tales</string>
     <string name="movie_genre">Fantasy, Family, Romance</string>
     <string name="movie_release_year">2017</string>
+    <string name="popular">Popular</string>
+    <string name="in_theater">In Theater</string>
+    <string name="top">Top</string>
+    <string name="trending_movies">Trending Movies</string>
+    <string name="top_movies">Top Movies</string>
+    <string name="more">More</string>
+    <string name="movie_time">MovieTime</string>
+    <string name="detail_intent">detail_intent</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.nacoda.moviesmvvm.mvvm
+package com.nacoda.moviesmvvm.mvvm.main
 
 import com.nacoda.moviesmvvm.data.model.Movie
 

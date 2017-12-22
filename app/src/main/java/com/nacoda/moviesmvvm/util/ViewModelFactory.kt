@@ -5,7 +5,10 @@ import android.app.Application
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.nacoda.moviesmvvm.data.source.MoviesRepository
-import com.nacoda.moviesmvvm.mvvm.MainViewModel
+import com.nacoda.moviesmvvm.mvvm.detail.header.DetailHeaderViewModel
+import com.nacoda.moviesmvvm.mvvm.main.movies.popular.PopularViewModel
+import com.nacoda.moviesmvvm.mvvm.main.movies.top.TopViewModel
+import com.nacoda.moviesmvvm.mvvm.main.search.SearchViewModel
 
 /**
  * Created by irfanirawansukirman on 04/12/17.
@@ -19,8 +22,15 @@ class ViewModelFactory private constructor(
     override fun <T : ViewModel?> create(modelClass: Class<T>) =
             with(modelClass) {
                 when {
-                    isAssignableFrom(MainViewModel::class.java) ->
-                        MainViewModel(mApplication, mMoviesRepository)
+                    isAssignableFrom(PopularViewModel::class.java) ->
+                        PopularViewModel(mApplication, mMoviesRepository)
+                    isAssignableFrom(TopViewModel::class.java) ->
+                        TopViewModel(mApplication, mMoviesRepository)
+                    isAssignableFrom(SearchViewModel::class.java) ->
+                        SearchViewModel(mApplication, mMoviesRepository)
+                    isAssignableFrom(DetailHeaderViewModel::class.java) ->
+                        DetailHeaderViewModel(mApplication, mMoviesRepository)
+
                     else ->
                         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
                 }

@@ -8,7 +8,7 @@
 
         <variable
             name="mViewModel"
-            type="com.nacoda.moviesmvvm.mvvm.MainViewModel" />
+            type="com.nacoda.moviesmvvm.mvvm.main.movies.top.TopViewModel" />
 
     </data>
 
@@ -22,6 +22,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="LinearLayoutManager"
-            app:movieList="@{mViewModel.movieList}" />
+            app:topList="@{mViewModel.movieList}" />
     </LinearLayout>
 </layout>

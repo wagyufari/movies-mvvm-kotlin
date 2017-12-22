@@ -10,6 +10,21 @@ import com.nacoda.moviesmvvm.util.helper.Preference
  */
 
 class MoviesLocalDataSource private constructor(private val preferences: SharedPreferences) : MoviesDataSource {
+    override fun getDetail(callback: MoviesDataSource.GetDetailCallback, movieId: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun getSearch(callback: MoviesDataSource.GetMoviesCallback, query: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun getNowPlaying(callback: MoviesDataSource.GetMoviesCallback) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun getTopRated(callback: MoviesDataSource.GetMoviesCallback) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     override fun saveMovieId(movieId: String) {
         preferences.edit().putString(Preference.KEY, movieId)
@@ -17,7 +32,7 @@ class MoviesLocalDataSource private constructor(private val preferences: SharedP
 
     override fun getMovieId(): String = preferences.getString(Preference.KEY, "")
 
-    override fun getMovies(callback: MoviesDataSource.GetMoviesCallback) {
+    override fun getPopular(callback: MoviesDataSource.GetMoviesCallback) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

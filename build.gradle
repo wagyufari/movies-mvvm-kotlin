@@ -32,7 +32,7 @@ ext {
     archLifecycleVersion = "1.0.0"
     archRoomVersion = "1.0.0"
     rxJava2AndroidVersion = "2.0.1"
-    glideVersion = '3.7.0'
+    glideVersion = '4.2.0'
     gsonConverterVersion = "2.3.0"
     retrofitVersion = "2.3.0"
     espressoVersion = "3.0.1"
@@ -40,4 +40,6 @@ ext {
     testRunnerVersion = "1.0.1"
     loggingInterceptorVersion = "3.8.0"
     okhttpVersion = "3.9.0"
+    navigationTabStripVersion = "1.0.4"
+    flubberVersion = "1.0.1"
 }

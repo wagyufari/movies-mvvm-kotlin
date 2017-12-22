@@ -1,5 +1,8 @@
 package com.nacoda.moviesmvvm.data.model
 
+import java.io.Serializable
+
+
 /**
  * Created by irfanirawansukirman on 04/12/17.
  */
@@ -19,4 +22,4 @@ data class Movie(
         var overview: String? = null,
         var release_date: String? = null,
         var genre_ids: Array<String>
-)
+):Serializable

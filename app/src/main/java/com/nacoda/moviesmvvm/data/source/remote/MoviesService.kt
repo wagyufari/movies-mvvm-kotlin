@@ -1,5 +1,6 @@
 package com.nacoda.moviesmvvm.data.source.remote
 
+import com.nacoda.moviesmvvm.data.model.Detail
 import id.gits.jasaraharja.base.BaseApiModel
 import com.nacoda.moviesmvvm.data.model.Movie
 import com.nacoda.moviesmvvm.util.helper.Network
@@ -11,6 +12,8 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
 /**
@@ -21,8 +24,40 @@ interface MoviesService {
     /**
      * Do get movie list with this path
      */
-    @GET("discover/movie?api_key=1b2f29d43bf2e4f3142530bc6929d341&sort_by=popularity.desc")
-    fun getMovies(): Observable<BaseApiModel<List<Movie>>>
+    @GET("movie/popular")
+    fun getPopular(
+            @Query("api_key") api_key: String,
+            @Query("language") language: String,
+            @Query("page") page: String
+    ): Observable<BaseApiModel<List<Movie>>>
+
+    @GET("movie/now_playing")
+    fun getNowPlaying(
+            @Query("api_key") api_key: String,
+            @Query("language") language: String,
+            @Query("page") page: String
+    ): Observable<BaseApiModel<List<Movie>>>
+
+    @GET("movie/top_rated")
+    fun getTopRated(
+            @Query("api_key") api_key: String,
+            @Query("language") language: String,
+            @Query("page") page: String
+    ): Observable<BaseApiModel<List<Movie>>>
+
+    @GET("search/movie")
+    fun getSearch(
+            @Query("api_key") api_key: String,
+            @Query("language") language: String,
+            @Query("query") query: String
+    ):Observable<BaseApiModel<List<Movie>>>
+
+    @GET("movie/{movieId}")
+    fun getDetail(
+            @Path("movieId") movieId: String,
+            @Query("api_key") api_key: String,
+            @Query("language") language: String
+    ): Observable<Detail>
 
     /**
      * Companion object to create the Jasa Raharja Service

@@ -1,5 +1,6 @@
 package com.nacoda.moviesmvvm.data.source
 
+import com.nacoda.moviesmvvm.data.model.Detail
 import com.nacoda.moviesmvvm.data.model.Movie
 
 
@@ -23,7 +24,21 @@ interface MoviesDataSource {
      * Get all movie list
      * @param callback
      */
-    fun getMovies(callback: GetMoviesCallback)
+    fun getPopular(callback: GetMoviesCallback)
+
+    fun getNowPlaying(callback: GetMoviesCallback)
+
+    fun getTopRated(callback: GetMoviesCallback)
+
+    fun getSearch(callback: GetMoviesCallback, query: String)
+
+    fun getDetail(callback: GetDetailCallback, movieId: String)
+
+    interface GetDetailCallback {
+        fun onDetailLoaded(detail: Detail?)
+        fun onDataNotAvailable()
+        fun onError(errorMessage: String?)
+    }
 
     interface GetMoviesCallback {
 
