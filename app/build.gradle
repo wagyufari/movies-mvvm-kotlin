@@ -9,6 +9,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 26
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.nacoda.moviesmvvm"
         minSdkVersion 16
         targetSdkVersion 26
@@ -51,6 +52,13 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxJava2AndroidVersion"
     implementation 'com.github.bumptech.glide:glide:4.2.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
+
+    compile 'com.github.devlight.navigationtabstrip:navigationtabstrip:1.0.4'
+
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
+
+    compile 'com.makeramen:roundedimageview:2.3.0'
 
     kapt "com.android.databinding:compiler:$rootProject.gradleVersion"
 

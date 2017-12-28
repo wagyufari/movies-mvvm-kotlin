@@ -19,7 +19,7 @@ import com.nacoda.moviesmvvm.util.helper.getGenres
  * Created by irfanirawansukirman on 04/12/17.
  */
 
-class PopularAdapter(private var mMovies: List<Movie>, private var mPopularViewModel: PopularViewModel, var mContext: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class PopularAdapter(private var mMovies: List<Movie>, private var mPopularViewModel: PopularViewModel, var mContext: Context?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
         val mMainItemBinding: MainMoviesItemBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context),
@@ -35,7 +35,7 @@ class PopularAdapter(private var mMovies: List<Movie>, private var mPopularViewM
             override fun onMovieClicked(movie: Movie) {
                 var intent = Intent(mContext, DetailActivity::class.java)
                 intent.putExtra(mContext!!.getString(R.string.detail_intent), movie)
-                mContext.startActivity(intent)
+                mContext!!.startActivity(intent)
             }
         }
         (holder as MainItemHolder).bindItem(mMovieItem, mUserActionListener)

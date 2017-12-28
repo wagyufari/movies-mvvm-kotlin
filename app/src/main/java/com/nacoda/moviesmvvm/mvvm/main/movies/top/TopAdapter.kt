@@ -18,7 +18,7 @@ import com.nacoda.moviesmvvm.util.helper.getGenres
  * Created by irfanirawansukirman on 04/12/17.
  */
 
-class TopAdapter(private var mMovies: List<Movie>, private var mTopViewModel: TopViewModel,var mContext: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class TopAdapter(private var mMovies: List<Movie>, private var mTopViewModel: TopViewModel,var mContext: Context?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
         val mMainItemBinding: MainMoviesItemBinding = DataBindingUtil.inflate(LayoutInflater.from(parent?.context),
@@ -33,8 +33,8 @@ class TopAdapter(private var mMovies: List<Movie>, private var mTopViewModel: To
         val mUserActionListener = object : MainItemUserActionListener {
             override fun onMovieClicked(movie: Movie) {
                 val intent = Intent(mContext, DetailActivity::class.java)
-                intent.putExtra(mContext.getString(R.string.detail_intent), movie)
-                mContext.startActivity(intent)
+                intent.putExtra(mContext!!.getString(R.string.detail_intent), movie)
+                mContext!!.startActivity(intent)
             }
         }
         (holder as MainItemHolder).bindItem(mMovieItem, mUserActionListener)

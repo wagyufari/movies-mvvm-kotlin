@@ -1,5 +1,6 @@
 package com.nacoda.moviesmvvm.data.source
 
+import com.nacoda.moviesmvvm.data.model.Casts
 import com.nacoda.moviesmvvm.data.model.Detail
 import com.nacoda.moviesmvvm.data.model.Movie
 
@@ -34,8 +35,16 @@ interface MoviesDataSource {
 
     fun getDetail(callback: GetDetailCallback, movieId: String)
 
+    fun getCasts(callback: GetCastsCallback, movieId: String)
+
     interface GetDetailCallback {
         fun onDetailLoaded(detail: Detail?)
+        fun onDataNotAvailable()
+        fun onError(errorMessage: String?)
+    }
+
+    interface GetCastsCallback {
+        fun onCastsLoaded(casts: Casts)
         fun onDataNotAvailable()
         fun onError(errorMessage: String?)
     }

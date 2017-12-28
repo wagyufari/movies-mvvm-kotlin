@@ -6,10 +6,11 @@ import android.arch.lifecycle.AndroidViewModel
 import android.databinding.ObservableInt
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.View
 import com.nacoda.moviesmvvm.data.model.Movie
 import com.nacoda.moviesmvvm.data.source.MoviesDataSource
 import com.nacoda.moviesmvvm.data.source.MoviesRepository
+import com.nacoda.moviesmvvm.util.helper.hideProgress
+import com.nacoda.moviesmvvm.util.helper.showProgress
 
 /**
  * Created by irfanirawansukirman on 04/12/17.
@@ -32,10 +33,9 @@ class SearchViewModel(context: Application, private val mMoviesRepository: Movie
         mMoviesRepository.getSearch(object : MoviesDataSource.GetMoviesCallback {
             override fun onMoviesLoaded(movies: List<Movie>?) {
 
-                progressVisibility.set(View.GONE)
-                recyclerVisibility.set(View.VISIBLE)
+                showProgress(progressVisibility, recyclerVisibility)
 
-                var mAdapter = SearchAdapter(movies, this@SearchViewModel, mContext)
+                val mAdapter = SearchAdapter(movies, this@SearchViewModel, mContext)
 
                 val layoutManager = LinearLayoutManager(mContext)
                 layoutManager.orientation = LinearLayoutManager.VERTICAL
@@ -47,14 +47,11 @@ class SearchViewModel(context: Application, private val mMoviesRepository: Movie
             }
 
             override fun onDataNotAvailable() {
-                progressVisibility.set(View.GONE)
-                recyclerVisibility.set(View.GONE)
-                errorTextVisibility.set(View.VISIBLE)
+                hideProgress(progressVisibility, recyclerVisibility, errorTextVisibility)
             }
 
             override fun onError(errorMessage: String?) {
-                progressVisibility.set(View.GONE)
-                recyclerVisibility.set(View.GONE)
+                hideProgress(progressVisibility, recyclerVisibility)
             }
         }, query)
     }

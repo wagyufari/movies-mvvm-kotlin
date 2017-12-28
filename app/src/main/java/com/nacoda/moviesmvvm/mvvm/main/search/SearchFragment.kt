@@ -10,7 +10,11 @@ import com.nacoda.moviesmvvm.util.obtainViewModel
 import kotlinx.android.synthetic.main.search_fragment.*
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
 import com.nacoda.moviesmvvm.mvvm.main.MainMoviesActivity
+import com.nacoda.moviesmvvm.util.helper.hideProgress
+import com.nacoda.moviesmvvm.util.helper.onSearchStarted
 
 
 class SearchFragment : BaseFragment() {
@@ -30,18 +34,20 @@ class SearchFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        var mViewModel = mViewDataBinding.mViewModel
+        YoYo.with(Techniques.SlideInUp)
+                .duration(300)
+                .playOn(search)
+
+        val mViewModel = mViewDataBinding.mViewModel
         (activity as MainMoviesActivity).showInputMethod()
 
-        mViewModel!!.progressVisibility.set(View.GONE)
-        mViewModel!!.errorTextVisibility.set(View.GONE)
+        hideProgress(mViewModel!!.progressVisibility, mViewModel.recyclerVisibility, mViewModel.errorTextVisibility)
 
         search.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 (activity as MainMoviesActivity).hideInputMethod()
 
-                mViewModel.progressVisibility.set(View.VISIBLE)
-                mViewModel.errorTextVisibility.set(View.GONE)
+                onSearchStarted(mViewModel.progressVisibility, mViewModel.errorTextVisibility)
 
                 mViewDataBinding.mViewModel?.start(search.text.toString(), recyclerViewSearch)
                 return@OnEditorActionListener true

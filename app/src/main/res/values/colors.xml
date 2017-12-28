@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#112034</color>
+    <color name="colorPrimary">#ff8e5d</color>
     <color name="colorPrimaryDark">#0b1521</color>
     <color name="colorAccent">#00cc71</color>
 
@@ -29,7 +29,6 @@
     <color name="independence">#4C516D</color>
     <color name="greyIndicator">#c6c6c6</color>
     <color name="lineGrey">#efefef</color>
-    <color name="colorPurpleAccent">#923bba</color>
     <color name="light_grey">#e1e1e1</color>
     <color name="darkGrey">#8c8c8c</color>
     <color name="colorBlack">#000</color>

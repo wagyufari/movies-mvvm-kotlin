@@ -5,7 +5,9 @@ import android.app.Application
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.nacoda.moviesmvvm.data.source.MoviesRepository
-import com.nacoda.moviesmvvm.mvvm.detail.header.DetailHeaderViewModel
+import com.nacoda.moviesmvvm.mvvm.detail.DetailViewModel
+import com.nacoda.moviesmvvm.mvvm.detail.casts.CastsViewModel
+import com.nacoda.moviesmvvm.mvvm.detail.info.InfoViewModel
 import com.nacoda.moviesmvvm.mvvm.main.movies.popular.PopularViewModel
 import com.nacoda.moviesmvvm.mvvm.main.movies.top.TopViewModel
 import com.nacoda.moviesmvvm.mvvm.main.search.SearchViewModel
@@ -28,8 +30,12 @@ class ViewModelFactory private constructor(
                         TopViewModel(mApplication, mMoviesRepository)
                     isAssignableFrom(SearchViewModel::class.java) ->
                         SearchViewModel(mApplication, mMoviesRepository)
-                    isAssignableFrom(DetailHeaderViewModel::class.java) ->
-                        DetailHeaderViewModel(mApplication, mMoviesRepository)
+                    isAssignableFrom(DetailViewModel::class.java) ->
+                        DetailViewModel(mApplication, mMoviesRepository)
+                    isAssignableFrom(InfoViewModel::class.java) ->
+                        InfoViewModel(mApplication, mMoviesRepository)
+                    isAssignableFrom(CastsViewModel::class.java) ->
+                        CastsViewModel(mApplication, mMoviesRepository)
 
                     else ->
                         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

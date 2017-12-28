@@ -24,16 +24,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginTop="@dimen/dimen_30dp"
-                        android:layout_marginRight="@dimen/dimen_8dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_star_purple_accent"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="@dimen/dimen_8dp" />
-
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -48,7 +38,7 @@
                             android:layout_gravity="center_horizontal"
                             android:fontFamily="@font/roboto_bold"
                             android:text="@string/movie_time"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="@color/dove_black"
                             android:textSize="@dimen/text_20sp" />
 
                         <TextView
@@ -101,7 +91,7 @@
                                 android:layout_marginStart="@dimen/dimen_6dp"
                                 android:fontFamily="@font/roboto_bold"
                                 android:text="@string/trending_movies"
-                                android:textColor="@color/colorPrimary"
+                                android:textColor="@color/dove_black"
                                 android:textSize="@dimen/text_20sp"
                                 android:textStyle="bold" />
 
@@ -150,7 +140,7 @@
                                 android:layout_marginStart="@dimen/dimen_6dp"
                                 android:fontFamily="@font/roboto_bold"
                                 android:text="@string/top_movies"
-                                android:textColor="@color/colorPrimary"
+                                android:textColor="@color/dove_black"
                                 android:textSize="@dimen/text_20sp"
                                 android:textStyle="bold" />
 

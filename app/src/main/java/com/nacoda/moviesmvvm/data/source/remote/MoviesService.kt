@@ -1,6 +1,7 @@
 package com.nacoda.moviesmvvm.data.source.remote
 
 import com.nacoda.moviesmvvm.base.BaseApiModel
+import com.nacoda.moviesmvvm.data.model.Casts
 import com.nacoda.moviesmvvm.data.model.Detail
 import com.nacoda.moviesmvvm.data.model.Movie
 import com.nacoda.moviesmvvm.util.helper.Network
@@ -50,14 +51,19 @@ interface MoviesService {
             @Query("api_key") api_key: String,
             @Query("language") language: String,
             @Query("query") query: String
-    ):Observable<BaseApiModel<List<Movie>>>
+    ): Observable<BaseApiModel<List<Movie>>>
 
     @GET("movie/{movieId}")
     fun getDetail(
             @Path("movieId") movieId: String,
-            @Query("api_key") api_key: String,
-            @Query("language") language: String
+            @Query("api_key") api_key: String
     ): Observable<Detail>
+
+    @GET("movie/{movieId}/credits")
+    fun getCasts(
+            @Path("movieId") movieId: String,
+            @Query("api_key") api_key: String
+    ): Observable<Casts>
 
     /**
      * Companion object to create the Jasa Raharja Service

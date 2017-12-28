@@ -2,9 +2,9 @@
 <resources>
 
     <string-array name="titles">
-        <item>POPULAR</item>
-        <item>IN THEATER</item>
-        <item>TOP</item>
+        <item>Info</item>
+        <item>Cast &amp; Crew</item>
+        <item>Reviews</item>
     </string-array>
 
 </resources>

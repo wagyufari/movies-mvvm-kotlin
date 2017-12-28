@@ -54,10 +54,10 @@
             android:layout_marginStart="@dimen/dimen_10dp"
             android:ellipsize="end"
             android:ems="8"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/comfortaa_bold"
             android:maxLines="1"
             android:text="@{item.title}"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/dove_black"
             android:textSize="@dimen/text_18sp" />
 
         <TextView
@@ -67,7 +67,7 @@
             android:layout_marginStart="@dimen/dimen_10dp"
             android:ellipsize="end"
             android:ems="8"
-            android:fontFamily="@font/roboto_light"
+            android:fontFamily="@font/comfortaa_light"
             android:maxLines="1"
             android:text="@{genres}"
             android:textSize="@dimen/text_14sp" />

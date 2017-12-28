@@ -51,7 +51,7 @@ class TopFragment : BaseFragment() {
             layoutManager.orientation = LinearLayoutManager.HORIZONTAL
 
             mAdapter = TopAdapter(mViewModel.movieList, mViewModel,context)
-            with(recyclerview_main) {
+            with(recyclerViewMain) {
                 adapter = mAdapter
                 setLayoutManager(layoutManager)
             }

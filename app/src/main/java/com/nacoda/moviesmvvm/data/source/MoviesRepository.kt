@@ -1,5 +1,6 @@
 package com.nacoda.moviesmvvm.data.source
 
+import com.nacoda.moviesmvvm.data.model.Casts
 import com.nacoda.moviesmvvm.data.model.Detail
 import com.nacoda.moviesmvvm.data.model.Movie
 
@@ -8,6 +9,23 @@ import com.nacoda.moviesmvvm.data.model.Movie
  * Created by irfanirawansukirman on 04/12/17.
  */
 open class MoviesRepository(val remoteDataSource: MoviesDataSource, val localDataSource: MoviesDataSource) : MoviesDataSource {
+    override fun getCasts(callback: MoviesDataSource.GetCastsCallback, movieId: String) {
+        remoteDataSource.getCasts(object : MoviesDataSource.GetCastsCallback {
+            override fun onCastsLoaded(casts: Casts) {
+                callback.onCastsLoaded(casts)
+            }
+
+            override fun onDataNotAvailable() {
+                callback.onDataNotAvailable()
+            }
+
+            override fun onError(errorMessage: String?) {
+                callback.onError(errorMessage)
+            }
+
+        }, movieId)
+    }
+
     override fun getDetail(callback: MoviesDataSource.GetDetailCallback, movieId: String) {
         remoteDataSource.getDetail(object : MoviesDataSource.GetDetailCallback {
             override fun onDetailLoaded(detail: Detail?) {

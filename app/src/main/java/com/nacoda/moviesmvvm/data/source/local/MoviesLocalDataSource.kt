@@ -10,6 +10,10 @@ import com.nacoda.moviesmvvm.util.helper.Preference
  */
 
 class MoviesLocalDataSource private constructor(private val preferences: SharedPreferences) : MoviesDataSource {
+    override fun getCasts(callback: MoviesDataSource.GetCastsCallback, movieId: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun getDetail(callback: MoviesDataSource.GetDetailCallback, movieId: String) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

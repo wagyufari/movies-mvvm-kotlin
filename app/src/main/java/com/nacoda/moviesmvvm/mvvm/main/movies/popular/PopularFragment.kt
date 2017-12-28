@@ -5,7 +5,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.nacoda.moviesmvvm.base.BaseFragment
 import com.nacoda.moviesmvvm.databinding.PopularFragmentBinding
 import com.nacoda.moviesmvvm.util.obtainViewModel
@@ -54,7 +53,7 @@ class PopularFragment : BaseFragment() {
 
             mAdapter = PopularAdapter(mViewModel.movieList, mViewModel, context)
 
-            with(recyclerview_main) {
+            with(recyclerViewMain) {
                 adapter = mAdapter
                 setLayoutManager(layoutManager)
             }
